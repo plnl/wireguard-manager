@@ -166,6 +166,10 @@ WireGuard-Manager-V2.0-面板搭建教程.md     # 完整中文教程（17 节�
 
 详见教程[第 17 节](WireGuard-Manager-V2.0-面板搭建教程.md)。
 
+## 许可证
+
+[MIT](LICENSE) © 2026 plnl
+
 ---
 
 <a id="english"></a>
@@ -328,3 +332,7 @@ of V1.3's. See tutorial section 16.
 - API auth is single-user + session cookie; no multi-user RBAC / OAuth.
 
 See tutorial section 17.
+
+## License
+
+[MIT](LICENSE) © 2026 plnl
