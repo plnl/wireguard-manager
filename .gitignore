@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行时产物（绝不该进仓库）：真实配置、私钥、状态、备份、日志
+# 这些都生成在 /etc/wireguard-manager/ 下，不在源码树里；这里兜底防止
+# 有人在源码目录里跑测试时把敏感文件误提交。
+etc/
+state/
+backups/
+*.key
+*.tar.gz
+wireguard-manager-collector.lock
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
