@@ -25,6 +25,8 @@ WireGuard 隧道本身不受任何影响。
   ASCII 趋势图，保留 90 天。
 - **Health Check** —— 分级别（pass/info/warn/error）的结构化体检，
   每项告警都带"下一步该查什么"的具体建议。
+- **DDNS 动态域名** —— Site-to-Site 场景下对端或本端 IP 为动态公网时，
+  自动周期检测并更新 DNS 记录，确保隧道始终能连上。
 - **告警引擎** —— Peer 掉线自动推送，支持 **Telegram / Bark / 企业微信 / 钉钉 /
   通用 Webhook** 五种渠道，带防抖（连续 N 次确认）与恢复通知。
 - **纯标准库 Python** —— 不依赖 `pip` / venv，Python 3.8+ 即可。网络基础设施
@@ -145,6 +147,7 @@ web/                               # Python 层（仅标准库）
 ├── wgm_common.py                  #   路径 / 原子写 / CLI 白名单 / run_cli
 ├── wgm_collector.py               #   采集守护进程
 ├── wgm_web.py                     #   HTTP 服务 + JSON API + 静态面板
+├── wgm_ddns.py                    #   DDNS 动态域名更新模块
 ├── wgm_health.py                  #   Health Check 引擎
 ├── wgm_traffic.py                 #   流量采样 / 汇总 / 趋势图
 ├── wgm_alert.py                   #   告警引擎（5 渠道）
@@ -199,6 +202,8 @@ Full documentation: **[WireGuard-Manager-V2.0-面板搭建教程.md](WireGuard-M
   aggregates, per-peer breakdown, ASCII trend chart, 90-day retention.
 - **Health check** — leveled (pass/info/warn/error) structured diagnostics; every
   warning ships with a concrete "what to check next".
+- **DDNS** — when a peer or the local end has a dynamic public IP (common in
+  Site-to-Site), automatically detects and updates DNS records to keep the tunnel connected.
 - **Alert engine** — auto-push when a peer drops, via **Telegram / Bark / WeCom /
   DingTalk / generic Webhook**, with debounce (N consecutive confirmations) and
   recovery notices.
